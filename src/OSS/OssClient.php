@@ -2138,6 +2138,15 @@ class OssClient
             $headers[self::OSS_ACCEPT_ENCODING] = '';
         }
 
+        if (isset($options[self::OSS_CACHE_CONTROL])) {
+            $headers[self::OSS_CACHE_CONTROL] = $options[self::OSS_CACHE_CONTROL];
+        }
+
+        if (isset($options[self::OSS_EXPIRES])) {
+            $headers[self::OSS_EXPIRES] = $options[self::OSS_EXPIRES];
+        }
+
+
         uksort($headers, 'strnatcasecmp');
 
         foreach ($headers as $header_key => $header_value) {
